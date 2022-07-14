@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-light bg-light justify-content-between">
+            <h3 class="navbar-brand"><span class="pink-text">Sweety's</span>Bakery</h3>
+            <div> 
+                <a href="/cart">Shopping Cart|</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="navbar navbar-expand-md">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recipes">Explore Recipes</a> <!--remember to put the real links for these-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/moments">My Sweet Moments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vibes">Vibes List</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="center">Welcome {{user.first_name}}!</h3>
+        <div>
+            <h5><strong>My Custom Recommendations:</strong></h5>
+            <h6>Try our New Mother's Day Cookie and Latte Gift Box!</h6>
+            <div>
+                <img class="img-med" src="{{ url_for('static', filename='cookies_and_latte_image.png') }}" alt="latte and cookie platter image">
+                <p>Our collection of assorted gourmet cookies and specialty lattes are sure to make your Mom feel extra special on her day. Let us help you celebrate the woman who made you, you, with this beautiful gift box today!</p>
+            </div>
+            <button class="btn btn-primary mb-3">Buy Now</button>
+        </div>
+        <h3 class="center">My Recipes</h3>
+        <div>
+            <div>
+                <table class="table table-hover table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Dessert Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Instructions</th>
+                            <th scope="col">Date Added</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for recipe in recipes %}
+                        <tr>
+                            <td>{{ recipe.name }}</td>
+                            <td>{{ recipe.description }}</td>
+                            <td>{{ recipe.instructions }}</td>
+                            <td>{{ recipe.date_added }}</td>
+                            <td><a href="/update/recipe/{{recipe.id}}">edit</a> | <a href="/delete/recipe/{{recipe.id}}">delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <a href="/add/new/recipe" class="btn btn-primary mb-3">Add New Recipe</a> 
+        </div>
+        <!-- <h3 class="center">My Sweet Moments</h3>
+        <div>
+            <table class="table table-hover table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Dessert Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date Added</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for moment in all_moments %}
+                    <tr>
+                        <td scope="row">{{moment.dessert_name}}</td>
+                        <td>{{ moment.description }}</td>                        
+                        <td>{{ moment.date_added }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/moment" class="btn btn-primary">Add New Moment</a> 
+        </div> -->
+        <div class="container">
+            <h3 class="center">Order Again</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-small" src="{{ url_for('static', filename='creme_brulee.png') }}" alt="image of creme brulee">
+                    <p>Creme Brulee</p>
+                    <p>$20.00</p>
+                    <a href="/cart" class="btn btn-primary mb-3">Buy Now</a>
+                </div>
+                <div class="col-sm-3">
+                    <img class="img-small" src="{{ url_for('static', filename='apple_tart_image.png') }}" alt="image of apple tart">
+                    <p>Apple Tart</p>
+                    <p>$20.00</p>
+                    <a href="/cart" class="btn btn-primary">Buy Now</a>
+                </div>
+                <div class="col-sm-3">
+                    <img class="img-small" src="{{ url_for('static', filename='spiced_cake_image.png') }}" alt="image of spiced cake">
+                    <p>Spiced Cake</p>
+                    <p>$35.00</p>
+                    <a href="/cart" class="btn btn-primary">Buy Now</a>
+                </div>
+                <div class="col-sm-3">
+                    <img class="img-small" src="{{ url_for('static', filename='gourmet_cookies_image.png') }}" alt="image of gourmet cookies">
+                    <p>Gourmet Cookies</p>
+                    <p>$29.99</p>
+                    <a href="/cart" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='my_script.js') }}"></script>
+</body>
+</html>

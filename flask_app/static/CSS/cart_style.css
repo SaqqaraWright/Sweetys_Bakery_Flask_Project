@@ -1,0 +1,96 @@
+/* Utility Classes */
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5 rem;
+}
+
+.pink-text{
+    color: #fc42af;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.img-small{
+    width: 80px;
+    height: 80px;
+} 
+/************ End of Utility Classes *******************/
+
+.img-med{
+    width: 160px;
+}
+
+/* "Shop" Classes*/
+
+.col-top{
+    margin-bottom: 15px;
+}
+
+
+/* Cart Page */
+.cart-page{
+    margin: 80px auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background:#fc42af; 
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 5px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td a{
+    color:#fc42af;
+    font-size: 12px;
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table{
+    border-top: 3px solid #fc42af;
+    width: 100%;
+    max-width: 400px;
+}
+
+td:last-child{
+    text-align:right;
+}
+
+th:last-child{
+    text-align: right;
+}

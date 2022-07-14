@@ -1,0 +1,35 @@
+/* Utility Classes */
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5 rem;
+}
+
+.pink-text{
+    color: #fc42af;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.img-small{
+    width: 80px;
+    height: 80px;
+} 
+/************ End of Utility Classes *******************/
+
+.img-med{
+    width: 160px;
+}
+
+/* "Shop" Classes*/
+
+.col-top{
+    margin-bottom: 15px;
+}
+
+
+
